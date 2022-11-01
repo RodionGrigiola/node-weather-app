@@ -11,7 +11,9 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const getForecast = require('./utils/getForecast')
+
 const app = express()
+const port = process.env.PORT || 3000 // for HEROKU
 
 /*----  Setting up paths for static folder and view engine ------*/
 const publicFolderPath = path.join(__dirname, '../public')
@@ -101,7 +103,7 @@ app.get('*', (req, res) => {
 
 
 //server
-app.listen(3000, () => {
-    console.log("server started...")
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`)
 })
 
